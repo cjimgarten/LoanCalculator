@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -113,6 +114,11 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 				interestRateDouble,
 				loanTermInt
 			);
-		pc.calculate();		
+		double monthlyPayment = pc.getMonthlyPayment();
+		double totalPayment = pc.getTotalPayment();
+		double totalInterest = pc.getTotalInteres();
+		double annualPayment = pc.getAnnualPayment();
+		String message = "Monthly payment: $" + monthlyPayment + "\nTotal payment: $" + totalPayment + "\nTotal interest: $" + totalInterest + "\nAnnual payment: " + annualPayment;
+		JOptionPane.showMessageDialog(this, message);
 	}
 }
