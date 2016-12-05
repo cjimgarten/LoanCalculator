@@ -145,15 +145,19 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 		
 		// add calculations to the list model and display to screen
 		double monthlyPayment = pc.getMonthlyPayment();
+		monthlyPayment = pc.roundToTwoDecimals(monthlyPayment);
 		String mpStr = "Monthly payment: $" + monthlyPayment;
 		this.listModel.addElement(mpStr);
 		double totalPayment = pc.getTotalPayment();
+		totalPayment = pc.roundToTwoDecimals(totalPayment);
 		String tpStr = "Total payment: $" + totalPayment;
 		this.listModel.addElement(tpStr);
 		double totalInterest = pc.getTotalInterest();
+		totalInterest = pc.roundToTwoDecimals(totalInterest);
 		String tiStr = "Total interest: $" + totalInterest;
 		this.listModel.addElement(tiStr);
 		double annualPayment = pc.getAnnualPayment();
+		annualPayment = pc.roundToTwoDecimals(annualPayment);
 		String apStr = "Annual payment: $" + annualPayment;
 		this.listModel.addElement(apStr);
 	}
