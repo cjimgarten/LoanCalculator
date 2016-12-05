@@ -42,6 +42,7 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 	
 	// final row
 	private JButton calcButton;
+	private JButton amortizationButton;
 	
 	// list to display the calculations
 	private DefaultListModel<String> listModel;
@@ -102,6 +103,12 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 		this.calcButton.addActionListener(this);
 		this.add(this.calcButton);
 		
+		// and a button to perform amortization
+		this.amortizationButton = new JButton("Amortization");
+		this.amortizationButton.setBounds(120, 100, 125, 25);
+		this.amortizationButton.addActionListener(this);
+		this.add(this.amortizationButton);
+		
 		// configure a list model to hold calculations
 		this.listModel = new DefaultListModel<String>();
 		
@@ -114,11 +121,6 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// clear the list model if it is not empty
-		if (!this.listModel.isEmpty()) {
-			this.listModel.clear();
-		}
-		
 		// get data from text fields
 		String loanAmountStr = this.amountTextField.getText();
 		String interestRateStr = this.interestTextField.getText();
@@ -143,22 +145,35 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 				loanTermInt
 			);
 		
-		// add calculations to the list model and display to screen
-		double monthlyPayment = pc.getMonthlyPayment();
-		monthlyPayment = pc.roundToTwoDecimals(monthlyPayment);
-		String mpStr = "Monthly payment: $" + monthlyPayment;
-		this.listModel.addElement(mpStr);
-		double totalPayment = pc.getTotalPayment();
-		totalPayment = pc.roundToTwoDecimals(totalPayment);
-		String tpStr = "Total payment: $" + totalPayment;
-		this.listModel.addElement(tpStr);
-		double totalInterest = pc.getTotalInterest();
-		totalInterest = pc.roundToTwoDecimals(totalInterest);
-		String tiStr = "Total interest: $" + totalInterest;
-		this.listModel.addElement(tiStr);
-		double annualPayment = pc.getAnnualPayment();
-		annualPayment = pc.roundToTwoDecimals(annualPayment);
-		String apStr = "Annual payment: $" + annualPayment;
-		this.listModel.addElement(apStr);
+		// clear the list model if it is not empty
+		if (!this.listModel.isEmpty()) {
+			this.listModel.clear();
+		}
+		
+		// check which button was pressed
+		Object src = e.getSource();
+		if (src.equals(this.calcButton)) {
+			// add calculations to the list model and display to screen
+			double monthlyPayment = pc.getMonthlyPayment();
+			monthlyPayment = pc.roundToTwoDecimals(monthlyPayment);
+			String mpStr = "Monthly payment: $" + monthlyPayment;
+			this.listModel.addElement(mpStr);
+			double totalPayment = pc.getTotalPayment();
+			totalPayment = pc.roundToTwoDecimals(totalPayment);
+			String tpStr = "Total payment: $" + totalPayment;
+			this.listModel.addElement(tpStr);
+			double totalInterest = pc.getTotalInterest();
+			totalInterest = pc.roundToTwoDecimals(totalInterest);
+			String tiStr = "Total interest: $" + totalInterest;
+			this.listModel.addElement(tiStr);
+			double annualPayment = pc.getAnnualPayment();
+			annualPayment = pc.roundToTwoDecimals(annualPayment);
+			String apStr = "Annual payment: $" + annualPayment;
+			this.listModel.addElement(apStr);
+		} else {
+			System.out.println("Monthly Amortization Schedule:");
+			System.out.println("No.\tAmt.\tIntr.\tPrin.\tBal.");
+			pc.printAmortizationSchedule();
+		}
 	}
 }
