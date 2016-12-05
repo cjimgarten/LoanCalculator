@@ -2,7 +2,7 @@
  * LoanCalcPanel.java
  * 
  * created: 12-03-2016
- * modified: 12-04-2016
+ * modified: 12-05-2016
  * 
  * JPanel for a loan calculator application
  */
@@ -11,14 +11,17 @@ package com.cjimgarten;
 
 import javax.swing.JPanel;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 public class LoanCalcPanel extends JPanel implements ActionListener {
 
@@ -39,6 +42,10 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 	
 	// final row
 	private JButton calcButton;
+	
+	// list to display the calculations
+	private DefaultListModel<String> listModel;
+	private JList<String> list;
 	
 	/**
 	 * create an instance
@@ -94,19 +101,40 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 		this.calcButton.setBounds(10, 100, 100, 25);
 		this.calcButton.addActionListener(this);
 		this.add(this.calcButton);
+		
+		// configure a list model to hold calculations
+		this.listModel = new DefaultListModel<String>();
+		
+		// configure a list to display the calculations
+		this.list = new JList<String>(this.listModel);
+		this.list.setBounds(10, 135, 330, 75);
+		this.list.setBorder(new LineBorder(new Color(100, 100, 100), 2));
+		this.add(this.list);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// clear the list model if it is not empty
+		if (!this.listModel.isEmpty()) {
+			this.listModel.clear();
+		}
+		
 		// get data from text fields
 		String loanAmountStr = this.amountTextField.getText();
 		String interestRateStr = this.interestTextField.getText();
 		String loanTermStr = this.termTextField.getText();
 		
 		// convert data to appropriate data type
-		double loanAmountDouble = Double.parseDouble(loanAmountStr);
-		double interestRateDouble = Double.parseDouble(interestRateStr);
-		int loanTermInt = Integer.parseInt(loanTermStr);
+		double loanAmountDouble = 0.00;
+		double interestRateDouble = 0.00;
+		int loanTermInt = 0;
+		try {
+			loanAmountDouble = Double.parseDouble(loanAmountStr);
+			interestRateDouble = Double.parseDouble(interestRateStr);
+			loanTermInt = Integer.parseInt(loanTermStr);
+		} catch (NumberFormatException ex) {
+			return;
+		}
 		
 		// perform the calculations
 		PerformCalculations pc = new PerformCalculations(
@@ -114,11 +142,19 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 				interestRateDouble,
 				loanTermInt
 			);
+		
+		// add calculations to the list model and display to screen
 		double monthlyPayment = pc.getMonthlyPayment();
+		String mpStr = "Monthly payment: $" + monthlyPayment;
+		this.listModel.addElement(mpStr);
 		double totalPayment = pc.getTotalPayment();
-		double totalInterest = pc.getTotalInteres();
+		String tpStr = "Total payment: $" + totalPayment;
+		this.listModel.addElement(tpStr);
+		double totalInterest = pc.getTotalInterest();
+		String tiStr = "Total interest: $" + totalInterest;
+		this.listModel.addElement(tiStr);
 		double annualPayment = pc.getAnnualPayment();
-		String message = "Monthly payment: $" + monthlyPayment + "\nTotal payment: $" + totalPayment + "\nTotal interest: $" + totalInterest + "\nAnnual payment: " + annualPayment;
-		JOptionPane.showMessageDialog(this, message);
+		String apStr = "Annual payment: $" + annualPayment;
+		this.listModel.addElement(apStr);
 	}
 }

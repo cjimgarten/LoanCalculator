@@ -2,7 +2,7 @@
  * PerformCalculations.java
  * 
  * created: 12-04-2016
- * modified: 12-04-2016
+ * modified: 12-05-2016
  * 
  * performs loan calculations
  */
@@ -47,12 +47,6 @@ public class PerformCalculations {
 		this.totalPayment = this.calculateTotalPayment(n);
 		this.totalInterest = this.calculateInterest();
 		this.annualPayment = this.calculateAnnualPayment();
-
-		// print results
-		System.out.println("Monthly payment: " + this.monthlyPayment);
-		System.out.println("Total payment: " + this.totalPayment);
-		System.out.println("Total interest: " + this.totalInterest);
-		System.out.println("Annual payment: " + this.annualPayment);
 	}
 	
 	/**
@@ -60,35 +54,44 @@ public class PerformCalculations {
 	 */
 	private double calculateMonthlyPayment(double n, double i, double discountFactor) {
 		double monthlyPayment = this.loanAmount / discountFactor;
-		monthlyPayment *= 100.00;
-		monthlyPayment = (Math.round(monthlyPayment)) / 100.00;
+		monthlyPayment = this.roundToTwoDecimals(monthlyPayment);
 		return monthlyPayment;
 	}
 	
 	/**
-	 * calculate the total payment
+	 * calculate the total payment and round to two decimal places
 	 */
 	private double calculateTotalPayment(double n) {
 		double totalPayment = this.monthlyPayment * n;
+		totalPayment = this.roundToTwoDecimals(totalPayment);
 		return totalPayment;
 	}
 	
 	/**
-	 * calculate the total interest paid
+	 * calculate the total interest paid and round to two decimal places
 	 */
 	private double calculateInterest() {
 		double totalInterest = this.totalPayment - this.loanAmount;
-		totalInterest *= 100.00;
-		totalInterest = (Math.round(totalInterest)) / 100.00;
+		totalInterest = this.roundToTwoDecimals(totalInterest);
 		return totalInterest;
 	}
 	
 	/**
-	 * calculate the annual payment
+	 * calculate the annual payment and round to two decimal places
 	 */
 	private double calculateAnnualPayment() {
 		double annualPayment = this.monthlyPayment * 12.0;
+		annualPayment = this.roundToTwoDecimals(annualPayment);
 		return annualPayment;
+	}
+	
+	/**
+	 * round to two decimal places
+	 */
+	private double roundToTwoDecimals(double roundMe) {
+		roundMe *= 100;
+		roundMe = (Math.round(roundMe)) / 100.00;
+		return roundMe;
 	}
 	
 	/**
@@ -102,7 +105,7 @@ public class PerformCalculations {
 		return this.totalPayment;
 	}
 	
-	public double getTotalInteres() {
+	public double getTotalInterest() {
 		return this.totalInterest;
 	}
 	
