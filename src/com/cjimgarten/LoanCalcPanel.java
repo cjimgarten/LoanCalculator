@@ -2,7 +2,7 @@
  * LoanCalcPanel.java
  * 
  * created: 12-03-2016
- * modified: 12-03-2016
+ * modified: 12-04-2016
  * 
  * JPanel for a loan calculator application
  */
@@ -108,7 +108,7 @@ public class LoanCalcPanel extends JPanel implements ActionListener {
 		int loanTermInt = Integer.parseInt(loanTermStr);
 		
 		// perform the calculations
-		PerformCalculation pc = new PerformCalculation(
+		PerformCalculations pc = new PerformCalculations(
 				loanAmountDouble,
 				interestRateDouble,
 				loanTermInt
