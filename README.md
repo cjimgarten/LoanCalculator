@@ -1,4 +1,14 @@
 # LoanCalculator
 Description: Loan calculator desktop application coded in Java
 
-![Alt text](./screenshots/loan_calc.png?raw=true "Loan Calculator")
+Open the application:
+![Alt text](./screenshots/loan_calc1.png?raw=true "Loan Calculator")
+
+Enter loan parameters:
+![Alt text](./screenshots/loan_calc2.png?raw=true "Parameters")
+
+Perform loan calculations:
+![Alt text](./screenshots/loan_calc3.png?raw=true "Calculations")
+
+Scroll to the bottom to see final payments:
+![Alt text](./screenshots/loan_calc4.png?raw=true "Scroll")
