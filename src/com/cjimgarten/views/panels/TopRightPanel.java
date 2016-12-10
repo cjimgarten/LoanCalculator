@@ -2,12 +2,12 @@
  * TopRightPanel.java
  * 
  * created: 12-06-2016
- * modified: 12-06-2016
+ * modified: 12-10-2016
  * 
  * top right panel of the content pane
  */
 
-package com.cjimgarten.views;
+package com.cjimgarten.views.panels;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;

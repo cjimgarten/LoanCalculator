@@ -2,14 +2,14 @@
  * LoanCalculator.java
  * 
  * created: 12-03-2016
- * modified: 12-06-2016
+ * modified: 12-10-2016
  * 
  * loan calculator desktop application
  */
 
-package com.cjimgarten.controllers;
+package com.cjimgarten.controllers.main;
 
-import com.cjimgarten.views.Frame;
+import com.cjimgarten.views.frames.Frame;
 
 public class LoanCalculator {
 

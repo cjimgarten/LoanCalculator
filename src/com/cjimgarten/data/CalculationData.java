@@ -2,12 +2,12 @@
  * CalculationData.java
  * 
  * created: 12-06-2016
- * modified: 12-07-2016
+ * modified: 12-10-2016
  * 
  * data object stores loan calculations
  */
 
-package com.cjimgarten.controllers;
+package com.cjimgarten.data;
 
 import java.util.ArrayList;
 

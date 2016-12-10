@@ -2,12 +2,12 @@
  * Main.java
  * 
  * created: 12-03-2016
- * modified: 12-06-2016
+ * modified: 12-10-2016
  * 
  * launches LoanCalculator application
  */
 
-package com.cjimgarten.controllers;
+package com.cjimgarten.controllers.main;
 
 public class Main {
 	

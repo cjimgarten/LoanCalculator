@@ -2,14 +2,15 @@
  * Frame.java
  * 
  * created: 12-03-2016
- * modified: 12-06-2016
+ * modified: 12-10-2016
  * 
  * frame for a loan calculator application
  */
 
-package com.cjimgarten.views;
+package com.cjimgarten.views.frames;
 
 import javax.swing.JFrame;
+import com.cjimgarten.views.panels.ContentPane;
 
 public class Frame extends JFrame {
 

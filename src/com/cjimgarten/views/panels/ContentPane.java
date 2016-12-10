@@ -2,12 +2,12 @@
  * ContentPane.java
  * 
  * created: 12-03-2016
- * modified: 12-07-2016
+ * modified: 12-10-2016
  * 
  * content pane for a loan calculator application
  */
 
-package com.cjimgarten.views;
+package com.cjimgarten.views.panels;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -21,8 +21,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.cjimgarten.controllers.CalculationData;
-import com.cjimgarten.controllers.PerformCalculations;
+import com.cjimgarten.data.CalculationData;
+import com.cjimgarten.controllers.calc.PerformCalculations;
 
 public class ContentPane extends JPanel implements ActionListener {
 	

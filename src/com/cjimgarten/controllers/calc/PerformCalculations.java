@@ -2,14 +2,15 @@
  * PerformCalculations.java
  * 
  * created: 12-04-2016
- * modified: 12-07-2016
+ * modified: 12-10-2016
  * 
  * performs loan calculations
  */
 
-package com.cjimgarten.controllers;
+package com.cjimgarten.controllers.calc;
 
 import java.util.ArrayList;
+import com.cjimgarten.data.CalculationData;
 
 public class PerformCalculations {
 
