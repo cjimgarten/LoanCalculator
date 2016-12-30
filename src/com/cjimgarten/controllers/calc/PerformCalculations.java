@@ -1,9 +1,5 @@
 /*
  * PerformCalculations.java
- * 
- * created: 12-04-2016
- * modified: 12-10-2016
- * 
  * performs loan calculations
  */
 

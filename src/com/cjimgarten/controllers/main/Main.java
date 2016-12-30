@@ -1,9 +1,5 @@
 /*
  * Main.java
- * 
- * created: 12-03-2016
- * modified: 12-10-2016
- * 
  * launches LoanCalculator application
  */
 
