@@ -1,9 +1,5 @@
 /*
  * TopRightPanel.java
- * 
- * created: 12-06-2016
- * modified: 12-10-2016
- * 
  * top right panel of the content pane
  */
 
@@ -16,9 +12,9 @@ import javax.swing.border.LineBorder;
 
 public class TopRightPanel extends JPanel {
 
-	// list to display the calculations
-	private DefaultListModel<String> listModel;
-	private JList<String> list;
+	// attributes
+	private DefaultListModel<String> listModel; // list model to display calculations
+	private JList<String> list; // list to hold the list model
 	
 	/**
 	 * create an instance

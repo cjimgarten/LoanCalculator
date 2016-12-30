@@ -1,9 +1,5 @@
 /*
  * Frame.java
- * 
- * created: 12-03-2016
- * modified: 12-10-2016
- * 
  * frame for a loan calculator application
  */
 
@@ -14,6 +10,7 @@ import com.cjimgarten.views.panels.ContentPane;
 
 public class Frame extends JFrame {
 
+	// attributes
 	private ContentPane contentPane;
 
 	/**

@@ -1,9 +1,5 @@
 /*
  * BottomPanel.java
- * 
- * created: 12-06-2016
- * modified: 12-10-2016
- * 
  * bottom panel of the content pane
  */
 
@@ -18,9 +14,9 @@ import javax.swing.border.LineBorder;
 
 public class BottomPanel extends JPanel {
 
-	// table to display the amortization schedule
-	private JTable table;
-	private JScrollPane scrollPane;
+	// attributes
+	private JTable table; // table to display amortization schedule
+	private JScrollPane scrollPane; // scroll pane to hold the table
 	
 	/**
 	 * create an instance
