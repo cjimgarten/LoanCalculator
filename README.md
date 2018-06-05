@@ -1,5 +1,5 @@
-# LoanCalculator
-Description: Loan calculator desktop application coded in Java
+# desktop-loan-calc
+Loan calculator desktop application
 
 Open the application:
 ![Alt text](./src/com/cjimgarten/images/screenshots/loan_calc1.png?raw=true "Loan Calculator")
